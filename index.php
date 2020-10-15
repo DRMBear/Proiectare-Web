@@ -1,6 +1,11 @@
 <?php   
 // PHP code to get the Fibonacci series 
 // Recursive function for fibonacci series. 
+
+echo "<h3>Fibonacci series for first 12 numbers: </h3>";  
+echo "\n";  
+
+
 function Fibonacci($number){ 
       
     // if and else if to generate first two numbers 
@@ -16,7 +21,7 @@ function Fibonacci($number){
 } 
   
 // Driver Code 
-$number = 10; 
+$number = 12; 
 for ($counter = 0; $counter < $number; $counter++){   
     echo Fibonacci($counter),' '; 
 } 
