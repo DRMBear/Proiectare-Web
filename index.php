@@ -3,7 +3,7 @@
 
 <form class="form1" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
 	<h2>Placeholder Lorem Ipsum</h2>
-	Furnizori: <input type="text" name="Furnizori" value="<?php echo $Furnizori; ?>">
+	Student: <input type="text" name="Student" value="<?php echo $Student; ?>">
 	<input type="submit" name="submit" value="Submit">
 </form>
 
@@ -11,8 +11,8 @@
 
 //Conection to database
 $servername = "remotemysql.com";
-$username = "TvLEwEK10r";
-$password = "iQ5VxN0MUr";
+$username = "eBQcIJMD67";
+$password = "ZsREhJKhFn";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password);
@@ -23,24 +23,24 @@ if ($conn->connect_error) {
 }
 echo "Connected successfully";
 
-if (empty($_POST["Furnizori"])) {
-	$FurnizoriErr = "Name is required";
+if (empty($_POST["Student"])) {
+	$StudentErr = "Name is required";
 } else {
-	$Furnizori = $_POST["Furnizori"];
-	if (!preg_match("/^[a-zA-Z-' ]*$/", $Furnizori)) {
-		$FurnizoriErr = "Only letters and white space allowed";
+	$Student = $_POST["Student"];
+	if (!preg_match("/^[a-zA-Z-' ]*$/", $Student)) {
+		$StudentErr = "Only letters and white space allowed";
 	}
 }
 
-if ($_POST["Furnizori"] != "") {
-	$sql = "INSERT INTO TvLEwEK10r.Table_1 (Furnizori)
-		VALUES ('$Furnizori')";
+if ($_POST["Student"] != "") {
+	$sql = "INSERT INTO eBQcIJMD67.table (Student)
+		VALUES ('$Student')";
 	if ($conn->query($sql) === TRUE) {
 		echo "New record created successfully";
 	} else {
 		echo "Error: " . $sql . "<br>" . $conn->error;
 	}
-	$Furnizori = "";
+	$Student = "";
 }
 
 ?>
@@ -55,7 +55,7 @@ if ($_POST["Furnizori"] != "") {
 	if (isset($_POST['name'])) {
 
 
-		$sql = "DELETE FROM TvLEwEK10r.Table_1 WHERE ID=" . $_POST['name'];
+		$sql = "DELETE FROM eBQcIJMD67.table WHERE ID=" . $_POST['name'];
 		if ($conn->query($sql) === TRUE) {
 			echo "Record deleted successfully";
 		} else {
@@ -68,7 +68,7 @@ if ($_POST["Furnizori"] != "") {
 
 <form class="delete" action="" method="post">
 	id: <input type="number" name="edit" value="<?php echo $EditNumberID; ?>">
-	Furnizori: <input type="text" name="edidoi" value="<?php echo $FurnizoriName; ?>">
+	Student: <input type="text" name="edidoi" value="<?php echo $StudentName; ?>">
 	<button type="submit" name="sub" value="">Edit</button>
 
 	<?php
@@ -76,8 +76,8 @@ if ($_POST["Furnizori"] != "") {
 
 	if (isset($_POST['edit'])) {
 
-		$FurnizoriName = $_POST['edidoi'];
-		$sql = "UPDATE TvLEwEK10r.Table_1 SET Furnizori = '$FurnizoriName' WHERE ID =" . $_POST['edit'];
+		$StudentName = $_POST['edidoi'];
+		$sql = "UPDATE eBQcIJMD67.table SET Student= '$StudentName' WHERE ID =" . $_POST['edit'];
 		if ($conn->query($sql) === TRUE) {
 			echo "Record edited successfully";
 		} else {
@@ -87,18 +87,18 @@ if ($_POST["Furnizori"] != "") {
 
 
 
-	$sql = "SELECT ID, Furnizori FROM TvLEwEK10r.Table_1";
+	$sql = "SELECT ID, Student FROM eBQcIJMD67.table";
 	$result = $conn->query($sql);
 	echo "<br><h2>Your Input:</h2>";
 	echo '<table><tr>';
 	echo '<th>' . "ID " . '</th>';
-	echo '<th>' . "Furnizori " . '</th>';
+	echo '<th>' . "Student " . '</th>';
 
 	echo '</tr><tbody>';
 	if ($result->num_rows > 0) {
 		while ($row = $result->fetch_assoc()) {
 			echo '<tr>';
-			echo "<td>" . $row["ID"] . '</td>' . "<td>" . $row["Furnizori"] . '</td>';
+			echo "<td>" . $row["ID"] . '</td>' . "<td>" . $row["Student"] . '</td>';
 			echo '</tr>';
 		}
 	} else {
