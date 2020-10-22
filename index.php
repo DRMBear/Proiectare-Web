@@ -1,4 +1,12 @@
 
+
+
+<form class="form1" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+	<h2>Placeholder Lorem Ipsum</h2>
+	Furnizori: <input type="text" name="Furnizori" value="<?php echo $Furnizori; ?>">
+	<input type="submit" name="submit" value="Submit">
+</form>
+
 <?php
 
 //Conection to database
