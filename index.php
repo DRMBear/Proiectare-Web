@@ -2,7 +2,7 @@
 
 
 <form class="form1" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-	<h2>Placeholder Lorem Ipsum</h2>
+	<h2>Lista studentilor imaginari: - Dragomir Razvan Mihai</h2>
 	Student: <input type="text" name="Student" value="<?php echo $Student; ?>">
 	<input type="submit" name="submit" value="Submit">
 </form>
